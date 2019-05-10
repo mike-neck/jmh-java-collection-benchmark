@@ -3,7 +3,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: adoptopenjdk/openjdk11:jdk-11.0.3_7-slim
+      - image: adoptopenjdk/openjdk12:jdk-12.0.1_12-slim
 
     working_directory: /work
 
