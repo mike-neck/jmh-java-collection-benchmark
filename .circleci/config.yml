@@ -1,0 +1,32 @@
+version: 2
+
+jobs:
+  build:
+    docker:
+      - image: adoptopenjdk/openjdk11:jdk-11.0.3_7-slim
+
+    working_directory: /work
+
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "build.gradle" }}
+
+      - run:
+          name: show/resolve dependency
+          command: ./gradlew dependencies
+      - run:
+          name: build application
+          command: ./gradlew installDist
+      - run:
+          name: run benchmark
+          command: build/install/jmh-java-collection-benchmark/bin/jmh-java-collection-benchmark >> build/result.txt
+          
+      - save_cache:
+          paths:
+            - ~/.gradle
+          key: v1-dependencies-{{ checksum "build.gradle" }}
+
+      - store_artifacts:
+          path: ./build/result.txt
