@@ -27,3 +27,6 @@ jobs:
           paths:
             - ~/.gradle
           key: v1-dependencies-{{ checksum "build.gradle" }}
+
+      - store_artifacts:
+          path: ./build/distributions/jmh-java-collection-benchmark.zip
