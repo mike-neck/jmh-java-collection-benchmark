@@ -5,7 +5,7 @@ jobs:
     docker:
       - image: mikeneck/jmh-jdk12-aws
 
-    working_directory: /work
+    working_directory: /jmh-java-collection-benchmark
 
     steps:
       - checkout
