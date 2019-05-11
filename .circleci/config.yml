@@ -3,7 +3,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: adoptopenjdk/openjdk12:jdk-12.0.1_12-slim
+      - image: mikeneck/jmh-jdk12-aws
 
     working_directory: /work
 
@@ -18,15 +18,12 @@ jobs:
           command: ./gradlew dependencies
       - run:
           name: build application
-          command: ./gradlew installDist
+          command: ./gradlew distZip
       - run:
-          name: run benchmark
-          command: build/install/jmh-java-collection-benchmark/bin/jmh-java-collection-benchmark >> build/result.txt
+          name: put object
+          command: aws s3api put-object --bucket org.mikeneck.test --key jmh-java-collection-benchmark.zip --body build/distributions/jmh-java-collection-benchmark.zip
           
       - save_cache:
           paths:
             - ~/.gradle
           key: v1-dependencies-{{ checksum "build.gradle" }}
-
-      - store_artifacts:
-          path: ./build/result.txt
