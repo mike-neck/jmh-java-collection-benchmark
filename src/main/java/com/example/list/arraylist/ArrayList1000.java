@@ -21,9 +21,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Consumer;
 
-public abstract class ArrayList1000 extends ListBenchmark {
+abstract class ArrayList1000 extends ListBenchmark {
 
-    public ArrayList1000(Consumer<? super List<String>> operation, Consumer<? super List<String>> afterHook) {
+    ArrayList1000(Consumer<? super List<String>> operation, Consumer<? super List<String>> afterHook) {
         super(1000, ArrayList::new, operation, afterHook);
     }
 }

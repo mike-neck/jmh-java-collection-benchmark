@@ -30,7 +30,11 @@ public abstract class ListBenchmark {
     private final Consumer<? super List<String>> operation;
     private final Consumer<? super List<String>> afterHook;
 
-    protected ListBenchmark(int size, Supplier<? extends List<String>> supplier, Consumer<? super List<String>> operation, Consumer<? super List<String>> afterHook) {
+    protected ListBenchmark(
+            int size,
+            Supplier<? extends List<String>> supplier,
+            Consumer<? super List<String>> operation,
+            Consumer<? super List<String>> afterHook) {
         this.size = size;
         this.supplier = supplier;
         this.operation = operation;
