@@ -109,7 +109,6 @@ class SizedListOperationClass {
     }
 
     String classContents() {
-        println("op: ${operation}, invert: ${operation.invertOperation()}")
         """\
        |package ${parentClass.packageName};
        |
