@@ -31,4 +31,11 @@ task createArrayListClasses(type: ListClassesTask, group: 'generate') {
     rootDir = 'src'
 }
 
-compileJava.dependsOn(createArrayListClasses)
+task createLinkedListClasses(type: ListClassesTask, group: 'generate') {
+    packageName = 'com.example.list.linkedlist'
+    sizes = [10, 100, 1000, 10000]
+    type = ListType.LINKED_LIST
+    rootDir = 'src'
+}
+
+compileJava.dependsOn(createArrayListClasses, createLinkedListClasses)
