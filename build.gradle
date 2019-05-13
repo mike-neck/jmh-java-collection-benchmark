@@ -1,3 +1,6 @@
+import com.example.ListClassesTask
+import com.example.ListType
+
 plugins {
     id 'java'
     id 'application'
@@ -21,3 +24,9 @@ application {
     mainClassName = "com.example.Main"
 }
 
+task createArrayListClasses(type: ListClassesTask, group: 'generate') {
+    packageName = 'com.example.list.arraylist'
+    sizes = [10, 100, 1000, 10000]
+    type = ListType.ARRAY_LIST
+    rootDir = 'src'
+}
