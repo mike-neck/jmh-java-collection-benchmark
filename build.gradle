@@ -30,3 +30,5 @@ task createArrayListClasses(type: ListClassesTask, group: 'generate') {
     type = ListType.ARRAY_LIST
     rootDir = 'src'
 }
+
+compileJava.dependsOn(createArrayListClasses)

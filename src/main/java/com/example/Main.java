@@ -47,6 +47,11 @@ public class Main {
         runner.run();
     }
 
+    public static int randomIndex(int size) {
+        ThreadLocalRandom random = ThreadLocalRandom.current();
+        return random.nextInt(size);
+    }
+
     public static String randomString() {
         ThreadLocalRandom random = ThreadLocalRandom.current();
         StringBuilder builder = new StringBuilder();

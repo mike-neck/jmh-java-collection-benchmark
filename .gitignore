@@ -26,3 +26,7 @@ out
 .idea/
 build/
 !gradle/wrapper/gradle-wrapper.jar
+
+src/main/java/com/example/list
+src/main/java/com/example/set
+src/main/java/com/example/map
