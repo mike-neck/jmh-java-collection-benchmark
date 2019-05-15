@@ -25,7 +25,7 @@ enum ListOperation {
     ADD_MID('AddMid', ListOpString.ADD_MID, ListOpString.REMOVE_LAST),
     REMOVE_LAST('RemoveLast', ListOpString.REMOVE_LAST, ListOpString.ADD),
     REMOVE_MID('RemoveMid', ListOpString.REMOVE_MID, ListOpString.ADD),
-    ITERATION('Iteration', ListOpString.ITERATION, ListOpString.ADD),
+    ITERATION('Iteration', ListOpString.ITERATION, ListOpString.NO_OP),
     NO_OP('', ListOpString.NO_OP, ListOpString.NO_OP),
     ;
 
