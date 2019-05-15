@@ -23,6 +23,7 @@ enum ListOperation {
     ADD_LAST('AddLast', ListOpString.ADD, ListOpString.REMOVE_LAST),
     ADD_FIRST('AddFirst', ListOpString.ADD_FIRST, ListOpString.REMOVE_LAST),
     ADD_MID('AddMid', ListOpString.ADD_MID, ListOpString.REMOVE_LAST),
+    REMOVE_FIRST('RemoveLast', ListOpString.REMOVE_FIRST, ListOpString.ADD),
     REMOVE_LAST('RemoveLast', ListOpString.REMOVE_LAST, ListOpString.ADD),
     REMOVE_MID('RemoveMid', ListOpString.REMOVE_MID, ListOpString.ADD),
     ITERATION('Iteration', ListOpString.ITERATION, ListOpString.NO_OP),
@@ -58,6 +59,7 @@ final class ListOpString {
     static String ADD = 'list -> list.add(Main.randomString())'
     static String ADD_FIRST = 'list -> list.add(0, Main.randomString())'
     static String ADD_MID = 'list -> list.add(Main.randomIndex(list.size()), Main.randomString())'
+    static String REMOVE_FIRST = 'list -> list.remove(0)'
     static String REMOVE_LAST = 'list -> list.remove(list.size() - 1)'
     static String REMOVE_MID = 'list -> list.remove(Main.randomIndex(list.size()))'
     static String ITERATION = 'list -> list.forEach(item -> {})'
