@@ -20,7 +20,8 @@ enum ListOperation {
     GET_FIRST('GetFirst', ListOpString.GET_FIRST, ListOpString.NO_OP),
     GET_LAST('GetLast', ListOpString.GET_LAST, ListOpString.NO_OP),
     GET_MID('GetMid', ListOpString.GET_MID, ListOpString.NO_OP),
-    ADD('Add', ListOpString.ADD, ListOpString.REMOVE_LAST),
+    ADD_LAST('AddLast', ListOpString.ADD, ListOpString.REMOVE_LAST),
+    ADD_FIRST('AddFirst', ListOpString.ADD_FIRST, ListOpString.REMOVE_LAST),
     ADD_MID('AddMid', ListOpString.ADD_MID, ListOpString.REMOVE_LAST),
     REMOVE_LAST('RemoveLast', ListOpString.REMOVE_LAST, ListOpString.ADD),
     REMOVE_MID('RemoveMid', ListOpString.REMOVE_MID, ListOpString.ADD),
@@ -55,6 +56,7 @@ final class ListOpString {
     static String GET_LAST = 'list -> list.get(list.size() - 1)'
     static String GET_MID = 'list -> list.get(Main.randomIndex(list.size()))'
     static String ADD = 'list -> list.add(Main.randomString())'
+    static String ADD_FIRST = 'list -> list.add(0, Main.randomString())'
     static String ADD_MID = 'list -> list.add(Main.randomIndex(list.size()), Main.randomString())'
     static String REMOVE_LAST = 'list -> list.remove(list.size() - 1)'
     static String REMOVE_MID = 'list -> list.remove(Main.randomIndex(list.size()))'
