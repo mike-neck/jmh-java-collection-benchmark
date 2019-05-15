@@ -27,11 +27,4 @@ out
 build/
 !gradle/wrapper/gradle-wrapper.jar
 
-src/main/java/com/example/list/arraylist
-src/main/java/com/example/list/linkedlist
-src/main/java/com/example/set/hashset
-src/main/java/com/example/set/linkedhashset
-src/main/java/com/example/set/treeset
-src/main/java/com/example/map/hashmap
-src/main/java/com/example/map/treemap
-src/main/java/com/example/map/linkedhashmap
+src/main/generated

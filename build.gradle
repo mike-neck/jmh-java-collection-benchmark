@@ -19,6 +19,14 @@ dependencies {
     annotationProcessor "org.openjdk.jmh:jmh-generator-annprocess:1.21"
 }
 
+sourceSets {
+    main {
+        java {
+            srcDirs += 'src/main/generated'
+        }
+    }
+}
+
 application {
     applicationDefaultJvmArgs = ["-Xms256M", "-Xmx256M"]
     mainClassName = "com.example.Main"
@@ -28,14 +36,14 @@ task createArrayListClasses(type: ListClassesTask, group: 'generate') {
     packageName = 'com.example.list.arraylist'
     sizes = [10, 100, 1000, 10000]
     type = ListType.ARRAY_LIST
-    rootDir = 'src'
+    rootDir = 'src/main/generated'
 }
 
 task createLinkedListClasses(type: ListClassesTask, group: 'generate') {
     packageName = 'com.example.list.linkedlist'
     sizes = [10, 100, 1000, 10000]
     type = ListType.LINKED_LIST
-    rootDir = 'src'
+    rootDir = 'src/main/generated'
 }
 
 compileJava.dependsOn(createArrayListClasses, createLinkedListClasses)

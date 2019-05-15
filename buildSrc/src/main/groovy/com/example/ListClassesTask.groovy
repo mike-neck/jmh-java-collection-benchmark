@@ -1,6 +1,7 @@
 package com.example
 
 import org.gradle.api.DefaultTask
+import org.gradle.api.tasks.OutputDirectory
 import org.gradle.api.tasks.TaskAction
 
 class ListClassesTask extends DefaultTask {
@@ -9,6 +10,11 @@ class ListClassesTask extends DefaultTask {
     String packageName
     List<Integer> sizes
     ListType type
+
+    @OutputDirectory
+    File getSourceDirectory() {
+        project.file(rootDir)
+    }
 
     @TaskAction
     void createBenchmark() {
@@ -31,7 +37,7 @@ class ListClassesTask extends DefaultTask {
     void validate() {
         if (rootDir == null)
             throw new IllegalArgumentException('provide rootDir')
-        if (!rootDir.matches('[a-zA-Z]\\p{Alnum}*'))
+        if (!rootDir.matches('[a-zA-Z]\\p{Alnum}*[/[a-zA-Z]\\p{Alnum}*]*'))
             throw new IllegalArgumentException('invalid root directory name')
         if (packageName == null || !packageName.matches('[a-zA-Z]\\p{Alnum}*[.[a-zA-Z]\\p{Alnum}]*'))
             throw new IllegalArgumentException(packageName == null? 'provide packageName' : 'invalid packageName')
@@ -67,7 +73,7 @@ class SizedListClass {
     }
 
     String path() {
-        "${rootDir}/main/java/${packageName.replace('.','/')}/${fileName()}"
+        "${rootDir}/${packageName.replace('.','/')}/${fileName()}"
     }
 
     String classContents() {
