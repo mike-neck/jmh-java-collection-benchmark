@@ -58,6 +58,7 @@ public abstract class SetBenchmark {
     @Group
     @TearDown(Level.Invocation)
     public void teardown() {
-        afterHook.accept(set);
+        while (size != set.size())
+            afterHook.accept(set);
     }
 }

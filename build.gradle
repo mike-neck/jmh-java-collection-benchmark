@@ -1,5 +1,7 @@
 import com.example.ListClassesTask
 import com.example.ListType
+import com.example.SetClassesTask
+import com.example.SetType
 
 plugins {
     id 'java'
@@ -9,6 +11,8 @@ plugins {
 group = 'com.example'
 sourceCompatibility = JavaVersion.VERSION_12
 targetCompatibility = JavaVersion.VERSION_12
+
+extensions.add('generatedSrc', 'src/main/generated')
 
 repositories {
     mavenCentral()
@@ -22,7 +26,7 @@ dependencies {
 sourceSets {
     main {
         java {
-            srcDirs += 'src/main/generated'
+            srcDirs += generatedSrc
         }
     }
 }
@@ -36,14 +40,29 @@ task createArrayListClasses(type: ListClassesTask, group: 'generate') {
     packageName = 'com.example.list.arraylist'
     sizes = [10, 100, 1000, 10000]
     type = ListType.ARRAY_LIST
-    rootDir = 'src/main/generated'
+    rootDir = generatedSrc
 }
 
 task createLinkedListClasses(type: ListClassesTask, group: 'generate') {
     packageName = 'com.example.list.linkedlist'
     sizes = [10, 100, 1000, 10000]
     type = ListType.LINKED_LIST
-    rootDir = 'src/main/generated'
+    rootDir = generatedSrc
+}
+
+task createHashSetClasses(type: SetClassesTask, group: 'generate') {
+    packageName = 'com.example.set.hashset'
+    sizes = [10, 100, 1000, 10000]
+    type = SetType.HASH_SET
+    rootDir = generatedSrc
+}
+
+task createTreeSetClasses(type: SetClassesTask, group: 'generate') {
+    packageName = 'com.example.set.treeset'
+    sizes = [10, 100, 1000, 10000]
+    type = SetType.TREE_SET
+    rootDir = generatedSrc
 }
 
 compileJava.dependsOn(createArrayListClasses, createLinkedListClasses)
+compileJava.dependsOn(createHashSetClasses, createTreeSetClasses)
