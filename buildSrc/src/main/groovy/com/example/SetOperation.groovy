@@ -26,7 +26,7 @@ final class SetOpString {
     //language=java prefix="class Foo { java.util.function.Consumer<Set<String>> f =" suffix=; }
     static final String ADD = 'strings -> strings.add(Main.randomString())'
     //language=java prefix="class Foo { java.util.function.Consumer<Set<String>> f =" suffix=; }
-    static final String REMOVE = 'strings -> strings.iterator().remove()'
+    static final String REMOVE = 'strings -> strings.stream().findFirst().ifPresent(strings::remove)'
     //language=java prefix="class Foo { java.util.function.Consumer<Set<String>> f =" suffix=; }
     static final String ITERATION = 'strings -> strings.forEach(String::isEmpty)'
     //language=java prefix="class Foo { java.util.function.Consumer<Set<String>> f =" suffix=; }
