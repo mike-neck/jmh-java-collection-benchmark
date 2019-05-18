@@ -23,7 +23,7 @@ enum ListOperation {
     ADD_LAST('AddLast', ListOpString.ADD, ListOpString.REMOVE_LAST),
     ADD_FIRST('AddFirst', ListOpString.ADD_FIRST, ListOpString.REMOVE_LAST),
     ADD_MID('AddMid', ListOpString.ADD_MID, ListOpString.REMOVE_LAST),
-    REMOVE_FIRST('RemoveLast', ListOpString.REMOVE_FIRST, ListOpString.ADD),
+    REMOVE_FIRST('RemoveFirst', ListOpString.REMOVE_FIRST, ListOpString.ADD),
     REMOVE_LAST('RemoveLast', ListOpString.REMOVE_LAST, ListOpString.ADD),
     REMOVE_MID('RemoveMid', ListOpString.REMOVE_MID, ListOpString.ADD),
     ITERATION('Iteration', ListOpString.ITERATION, ListOpString.NO_OP),
